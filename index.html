@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<style type="text/css">
+		body{
+			background-size: 100% 100%;
+		}
+		html, body{
+			width: 100%;
+			height: 100%
+		}
+	</style>
+	<script type="text/javascript">
+		var hash = document.URL.substr(document.URL.indexOf('#')+1) ;
+		console.log(hash)
+		 	var xhttp = new XMLHttpRequest();
+			var link_array = '1VgLANokopyolSa4ETTbOh_udPdAJWb2J-NwfS2gcTcU'
+		
+		  	xhttp.open("GET", "https://sheets.googleapis.com/v4/spreadsheets/"+link_array+"/values/Sheet"+hash+"?key=AIzaSyAmcp44cOi9-6XM4EqjCjIQLbj_D__1YPE");
+			xhttp.send();
+		  	xhttp.onreadystatechange = function() {
+			    if (this.readyState == 4 && this.status == 200) {
+					data_array1 = JSON.parse(this.responseText).values
+					var string = ''
+                    for (var i = 0; i < data_array1.length; i++) {
+						if(data_array1[i][0]){
+							if(data_array1[i][0].split('px').length>1){
+								string = string + '@media screen and ('+data_array1[i][0]+') {body\
+								  '+data_array1[i][1]+'\
+								}'
+							}
+							if(i == data_array1.length-1){
+								var linkElement = "<style type='text/css'>"+string+"</style>";
+								   $("head").append(linkElement);
+							}
+						}
+					}
+				}
+			}
+			$(document).ready(function(){
+				$("a").attr("href", "cam.html#"+hash)
+			})
+	</script>
+</head>
+<body>
+<a href="cam.html">LINK TO CAM</a>
+</body>
+</html>
