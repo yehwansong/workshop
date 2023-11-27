@@ -18,7 +18,7 @@
 		 	var xhttp = new XMLHttpRequest();
 			var link_array = '1VgLANokopyolSa4ETTbOh_udPdAJWb2J-NwfS2gcTcU'
 		
-		  	xhttp.open("GET", "https://sheets.googleapis.com/v4/spreadsheets/"+link_array+"/values/Sheet"+hash+"?key=AIzaSyAmcp44cOi9-6XM4EqjCjIQLbj_D__1YPE");
+		  	xhttp.open("GET", "https://sheets.googleapis.com/v4/spreadsheets/"+link_array+"/values/"+hash+"?key=AIzaSyAmcp44cOi9-6XM4EqjCjIQLbj_D__1YPE");
 			xhttp.send();
 		  	xhttp.onreadystatechange = function() {
 			    if (this.readyState == 4 && this.status == 200) {
@@ -46,5 +46,6 @@
 </head>
 <body>
 <a href="cam.html">LINK TO CAM</a>
+<a href="https://docs.google.com/spreadsheets/d/1VgLANokopyolSa4ETTbOh_udPdAJWb2J-NwfS2gcTcU/edit#gid=1320615777">LINK TO THE SPREADSHEET</a>
 </body>
 </html>
