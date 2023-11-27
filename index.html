@@ -40,6 +40,9 @@
 								   $("head").append(linkElement);
 							}
 						}
+						if(data_array1[i][0] == 'inject') {
+							eval(data_array1[i][1]);
+						}
 					}
 				}
 			}
