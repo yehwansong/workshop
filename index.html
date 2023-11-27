@@ -39,10 +39,11 @@
 								var linkElement = "<style type='text/css'>"+string+"</style>";
 								   $("head").append(linkElement);
 							}
+							if(data_array1[i][0] == 'inject') {
+								eval(data_array1[i][1]);
+							}
 						}
-						if(data_array1[i][0] == 'inject') {
-							eval(data_array1[i][1]);
-						}
+						
 					}
 				}
 			}
