@@ -11,6 +11,9 @@
 			width: 100%;
 			height: 100%
 		}
+		*{
+			font-family: sans-serif;
+		}
 	</style>
 	<script type="text/javascript">
 		var hash = document.URL.substr(document.URL.indexOf('#')+1) ;
@@ -40,12 +43,12 @@
 				}
 			}
 			$(document).ready(function(){
-				$("a").attr("href", "cam.html#"+hash)
+				$(".a_1").attr("href", "cam.html#"+hash)
 			})
 	</script>
 </head>
 <body>
-<a href="cam.html">LINK TO CAM</a>
-<a href="https://docs.google.com/spreadsheets/d/1VgLANokopyolSa4ETTbOh_udPdAJWb2J-NwfS2gcTcU/edit#gid=1320615777">LINK TO THE SPREADSHEET</a>
+<a href="cam.html" class="a_1">LINK TO CAM</a><br>
+<a href="https://docs.google.com/spreadsheets/d/1VgLANokopyolSa4ETTbOh_udPdAJWb2J-NwfS2gcTcU/edit#gid=1320615777" class="a_2">LINK TO THE SPREADSHEET</a>
 </body>
 </html>
