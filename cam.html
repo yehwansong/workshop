@@ -17,6 +17,9 @@
     width: 960px;
     display: none;
 }
+body{
+    overflow: hidden;
+}
 canvas{
     /*height: 100vh;*/
     transform-origin: left top;
@@ -41,7 +44,6 @@ canvas{
       }
       .popup{
         position: fixed;
-        background-color: blue;
         overflow: scroll;
       }
       .animate{
@@ -106,7 +108,7 @@ canvas{
          var popup_t = 0
          var popup_w = 0
          var popup_h = 0
- var positionArray = []
+        var positionArray = []
         $(document).ready(function(){
             $('.dot_wrap').css({'width':c_width*2+'px'})
             $('.dot_wrap').css({'height':c_height*2+'px'})
@@ -158,18 +160,20 @@ canvas{
                     data_array1 = JSON.parse(this.responseText).values
                     for (var i = 0; i < data_array1.length; i++) {
                         if(data_array1[i][0]){
-                                                        console.log(data_array1[i][0].split('Landmarks')[0] === 'rightHand')
-                                                if(data_array1[i][0].split('Landmarks').length>1){
-                                                    if(data_array1[i][0].split('Landmarks')[0] === 'face'){
-                                                        positionArray.push(['face',parseInt(data_array1[i][0].split('Landmarks[')[1].split(']')[0])])
-                                                    }else if(data_array1[i][0].split('Landmarks')[0] === 'leftHand'){
-                                                        positionArray.push(['left',parseInt(data_array1[i][0].split('Landmarks[')[1].split(']')[0])])
-                                                    }else if(data_array1[i][0].split('Landmarks')[0] === 'rightHand'){
-                                                        console.log('!')
-                                                        positionArray.push(['right',parseInt(data_array1[i][0].split('Landmarks[')[1].split(']')[0])])
-                                                    }
-                                                }
-                                            }
+                            if(data_array1[i][0].split('Landmarks').length>1){
+                                if(data_array1[i][0].split('Landmarks')[0] === 'face'){
+                                    positionArray.push(['face',parseInt(data_array1[i][0].split('Landmarks[')[1].split(']')[0])])
+                                }else if(data_array1[i][0].split('Landmarks')[0] === 'leftHand'){
+                                    positionArray.push(['left',parseInt(data_array1[i][0].split('Landmarks[')[1].split(']')[0])])
+                                }else if(data_array1[i][0].split('Landmarks')[0] === 'rightHand'){
+                                    console.log('!')
+                                    positionArray.push(['right',parseInt(data_array1[i][0].split('Landmarks[')[1].split(']')[0])])
+                                }
+                            }
+                            if(data_array1[i][0].split('min-left').length>1){
+                                console.log(parseInt(data_array1[i][0].split('min-left')[1].split('%')[0]) )
+                            }
+                        }
                     }
                 }
             }
