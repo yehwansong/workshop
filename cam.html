@@ -173,6 +173,9 @@ canvas{
                             if(data_array1[i][0].split('min-left').length>1){
                                 console.log(parseInt(data_array1[i][0].split('min-left')[1].split('%')[0]) )
                             }
+                            if(data_array1[i][0] == 'inject-cam') {
+                              eval(data_array1[i][1]);
+                            }
                         }
                     }
                 }
